@@ -1,26 +1,15 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import UpcomingEvents from './components/UpcomingEvents';
 import FeaturedCategories from './components/FeaturedCategories';
 import WhyUs from './components/WhyUs';
+import ItemShowcase from './components/ItemShowcase';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
 
 const App: React.FC = () => {
-  const [logoUrl, setLogoUrl] = useState<string | null>(null);
-
-  const handleLogoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setLogoUrl(reader.result as string);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
   return (
     <div 
       className="bg-comic-yellow min-h-screen text-comic-black font-nunito"
@@ -29,11 +18,13 @@ const App: React.FC = () => {
         backgroundSize: '6px 6px'
       }}
     >
-      <Header logoUrl={logoUrl} onLogoUpload={handleLogoUpload} />
+      <Header />
       <main>
         <Hero />
+        <UpcomingEvents />
         <FeaturedCategories />
         <WhyUs />
+        <ItemShowcase />
         <CTA />
       </main>
       <Footer />
