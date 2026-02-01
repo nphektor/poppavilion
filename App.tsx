@@ -22,7 +22,13 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#FFFDF5] min-h-screen text-gray-700 font-nunito">
+    <div 
+      className="bg-comic-yellow min-h-screen text-comic-black font-nunito"
+      style={{
+        backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.05) 1px, transparent 1px)',
+        backgroundSize: '6px 6px'
+      }}
+    >
       <Header logoUrl={logoUrl} onLogoUpload={handleLogoUpload} />
       <main>
         <Hero />
